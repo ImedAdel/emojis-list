@@ -22,11 +22,11 @@ $("body > div.main > table > tbody > tr")
 		return (
 			($(row).children().length === 5 &&
 				/[\d]+/.test($(row).children().first().text())) ||
-			$(row).find('th').hasClass("bighead")
+			$(row).find("th").hasClass("bighead")
 		)
 	})
 	.each((_, row) => {
-		if ($(row).find('th').hasClass("bighead")) {
+		if ($(row).find("th").hasClass("bighead")) {
 			currentClass = $(row).text().trim()
 			return
 		}
@@ -61,3 +61,4 @@ $("body > div.main > table > tbody > tr")
 	})
 
 await Deno.writeTextFile("./emojis.json", JSON.stringify(emojis, null, 2))
+await Deno.writeTextFile("./emojis.min.json", JSON.stringify(emojis))
